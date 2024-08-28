@@ -43,7 +43,7 @@
             this.btn_SetOpenUrl.TabIndex = 0;
             this.btn_SetOpenUrl.Text = "注册程序";
             this.btn_SetOpenUrl.UseVisualStyleBackColor = true;
-            this.btn_SetOpenUrl.Click += new System.EventHandler(this.btn_SetOpenUrl_Click);
+            this.btn_SetOpenUrl.Click += new System.EventHandler(this.Btn_SetOpenUrl_Click);
             // 
             // btn_CopyUrl
             // 
@@ -54,7 +54,7 @@
             this.btn_CopyUrl.TabIndex = 1;
             this.btn_CopyUrl.Text = "复制链接";
             this.btn_CopyUrl.UseVisualStyleBackColor = true;
-            this.btn_CopyUrl.Click += new System.EventHandler(this.btn_CopyUrl_Click);
+            this.btn_CopyUrl.Click += new System.EventHandler(this.Btn_CopyUrl_Click);
             // 
             // btn_OpenInEdge
             // 
@@ -65,7 +65,7 @@
             this.btn_OpenInEdge.TabIndex = 2;
             this.btn_OpenInEdge.Text = "使用Edge打开";
             this.btn_OpenInEdge.UseVisualStyleBackColor = true;
-            this.btn_OpenInEdge.Click += new System.EventHandler(this.btn_OpenInEdge_Click);
+            this.btn_OpenInEdge.Click += new System.EventHandler(this.Btn_OpenInEdge_Click);
             // 
             // btn_OpenInEdgeInPrivate
             // 
@@ -76,7 +76,7 @@
             this.btn_OpenInEdgeInPrivate.TabIndex = 3;
             this.btn_OpenInEdgeInPrivate.Text = "Edge无痕模式";
             this.btn_OpenInEdgeInPrivate.UseVisualStyleBackColor = true;
-            this.btn_OpenInEdgeInPrivate.Click += new System.EventHandler(this.btn_OpenInEdgeInPrivate_Click);
+            this.btn_OpenInEdgeInPrivate.Click += new System.EventHandler(this.Btn_OpenInEdgeInPrivate_Click);
             // 
             // Form1
             // 

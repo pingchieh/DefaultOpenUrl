@@ -34,7 +34,12 @@ namespace DefaultOpenUrl
             }
         }
 
-        private void btn_SetOpenUrl_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 处理按钮点击事件，注册应用程序的 http 和 https 协议，并将其与应用程序功能关联。
+        /// </summary>
+        /// <param name="sender">触发事件的对象</param>
+        /// <param name="e">包含事件数据的 EventArgs 对象</param>
+        private void Btn_SetOpenUrl_Click(object sender, EventArgs e)
         {
             // 自动获取程序的名称和路径
             string appName = Assembly.GetExecutingAssembly().GetName().Name;
@@ -99,7 +104,12 @@ namespace DefaultOpenUrl
             }
         }
 
-        private void btn_CopyUrl_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 当点击"CopyUrl"按钮时处理的事件。如果URL不为空，将其复制到剪贴板并显示一条消息。如果URL为空，则显示一条错误消息。
+        /// </summary>
+        /// <param name="sender">触发事件的对象。</param>
+        /// <param name="e">包含事件数据的EventArgs对象。</param>
+        private void Btn_CopyUrl_Click(object sender, EventArgs e)
         {
             if (url != "")
             {
@@ -112,31 +122,41 @@ namespace DefaultOpenUrl
             }
         }
 
-        private void btn_OpenInEdge_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 处理按钮点击事件，使用Microsoft Edge打开指定的URL。
+        /// </summary>
+        /// <param name="sender">触发事件的对象。</param>
+        /// <param name="e">包含事件数据的EventArgs对象。</param>
+        private void Btn_OpenInEdge_Click(object sender, EventArgs e)
         {
             try
             {
                 // 使用Microsoft Edge打开URL
                 System.Diagnostics.Process.Start("msedge.exe", url);
-                Console.WriteLine("已使用Edge打开URL。");
+                //Console.WriteLine("已使用Edge打开URL。");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"打开Edge时出错: {ex.Message}");
+                //Console.WriteLine($"打开Edge时出错: {ex.Message}");
             }
         }
 
-        private void btn_OpenInEdgeInPrivate_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 在Microsoft Edge的隐私模式下打开URL的事件处理程序。
+        /// </summary>
+        /// <param name="sender">触发事件的对象。</param>
+        /// <param name="e">包含事件数据的EventArgs对象。</param>
+        private void Btn_OpenInEdgeInPrivate_Click(object sender, EventArgs e)
         {
             try
             {
                 // 使用Microsoft Edge隐私模式打开URL
                 System.Diagnostics.Process.Start("msedge.exe", $"--inprivate {url}");
-                Console.WriteLine("已使用Edge隐私模式打开URL。");
+                //Console.WriteLine("已使用Edge隐私模式打开URL。");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"打开Edge时出错: {ex.Message}");
+                //Console.WriteLine($"打开Edge时出错: {ex.Message}");
             }
         }
     }
