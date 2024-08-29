@@ -22,9 +22,9 @@ namespace DefaultOpenUrl
         string url = "";
 
         public MainForm(string url)
+            : this()
         {
             this.url = url;
-            InitializeComponent();
             if (url != "")
             {
                 btn_CopyUrl.Enabled = true;
@@ -114,7 +114,13 @@ namespace DefaultOpenUrl
             if (url != "")
             {
                 Clipboard.SetText(url);
-                MessageBox.Show("URL已复制到剪贴板: " + url);
+                if (
+                    MessageBox.Show("URL已复制到剪贴板,是否关闭程序?\n " + url, "提示", MessageBoxButtons.YesNo)
+                    == DialogResult.Yes
+                )
+                {
+                    this.Close();
+                }
             }
             else
             {
@@ -129,16 +135,15 @@ namespace DefaultOpenUrl
         /// <param name="e">包含事件数据的EventArgs对象。</param>
         private void Btn_OpenInEdge_Click(object sender, EventArgs e)
         {
-            try
+            if (
+                MessageBox.Show("是否要在Microsoft Edge中打开URL?\n" + url, "提示", MessageBoxButtons.YesNo)
+                == DialogResult.No
+            )
             {
-                // 使用Microsoft Edge打开URL
-                System.Diagnostics.Process.Start("msedge.exe", url);
-                //Console.WriteLine("已使用Edge打开URL。");
+                return;
             }
-            catch (Exception ex)
-            {
-                //Console.WriteLine($"打开Edge时出错: {ex.Message}");
-            }
+            System.Diagnostics.Process.Start("msedge.exe", url);
+            this.Close();
         }
 
         /// <summary>
@@ -148,16 +153,15 @@ namespace DefaultOpenUrl
         /// <param name="e">包含事件数据的EventArgs对象。</param>
         private void Btn_OpenInEdgeInPrivate_Click(object sender, EventArgs e)
         {
-            try
+            if (
+                MessageBox.Show("是否要在隐私模式下打开URL?\n" + url, "提示", MessageBoxButtons.YesNo)
+                == DialogResult.No
+            )
             {
-                // 使用Microsoft Edge隐私模式打开URL
-                System.Diagnostics.Process.Start("msedge.exe", $"--inprivate {url}");
-                //Console.WriteLine("已使用Edge隐私模式打开URL。");
+                return;
             }
-            catch (Exception ex)
-            {
-                //Console.WriteLine($"打开Edge时出错: {ex.Message}");
-            }
+            System.Diagnostics.Process.Start("msedge.exe", $"--inprivate {url}");
+            this.Close();
         }
     }
 }
